@@ -1030,13 +1030,43 @@ document.addEventListener('DOMContentLoaded', showSlides);
   </script>
 </body>
 </html>
+
+
+
+
+
+<body>
+
+    <div id="carousel-container">
+        <div id="image-carousel">
+            <img class="carousel-image" src="image01.jpeg" alt="image01">
+            <img class="carousel-image" src="image02.jpg" alt="image02">
+            <img class="carousel-image" src="image03.jpg" alt="image03">
+            <img class="carousel-image" src="Image01.jpg" alt="image01">
+            <img class="carousel-image" src="image05.jpg" alt="image05">
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const totalImages = document.querySelectorAll('.carousel-image').length;
+
+        function showSlide(index) {
+            currentIndex = (index + totalImages) % totalImages;
+            const translateValue = -currentIndex * 100 + '%';
+            document.getElementById('image-carousel').style.transform = 'translateX(' + translateValue + ')';
+        }
+
+        function changeSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        // Automatically change slide every 3 seconds
+        setInterval(changeSlide, 3500);
+    </script>
+
+</body>
+</html>
 <footer>
     <p>&copy;<strong>2024 Our SDROK-Friendly Website. All rights reserved.</strong></p>
 </footer> 
-
-
-
-
-
-
-
